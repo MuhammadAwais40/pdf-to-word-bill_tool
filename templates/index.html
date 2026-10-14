@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF to Word & Excel Converter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <div class="container">
+    <header class="hero">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+      </div>
+      <h1>PDF to <span class="grad">Word</span> & <span class="grad2">Excel</span></h1>
+      <p>Upload any PDF — text, tables or mixed — and download it as an editable file.</p>
+    </header>
+
+    <ol class="steps">
+      <li class="step active"><span>1</span> Upload</li>
+      <li class="step"><span>2</span> Analyze</li>
+      <li class="step"><span>3</span> Download</li>
+    </ol>
+
+    <main class="card">
+      <!-- Upload -->
+      <section id="uploadSection">
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload PDF">
+          <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <h3>Drag & drop your PDF here</h3>
+          <p>or click to browse (max 50 MB)</p>
+          <span class="btn btn-primary">Choose PDF</span>
+          <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden>
+        </div>
+      </section>
+
+      <!-- Progress -->
+      <section id="progressSection" hidden>
+        <div class="file-pill"><span id="progFileName">file.pdf</span></div>
+        <div class="bar"><div id="barFill" class="bar-fill"></div></div>
+        <p id="progStatus" class="muted center">Uploading…</p>
+      </section>
+
+      <!-- Result -->
+      <section id="resultSection" hidden>
+        <div class="file-pill ok"><span id="resFileName">file.pdf</span></div>
+        <div class="stats">
+          <div class="stat"><b id="stPages">0</b><span>Pages</span></div>
+          <div class="stat"><b id="stParas">0</b><span>Paragraphs</span></div>
+          <div class="stat"><b id="stTables">0</b><span>Tables</span></div>
+          <div class="stat"><b id="stWords">0</b><span>Words</span></div>
+        </div>
+
+        <h4 class="sub">Preview</h4>
+        <div id="preview" class="preview"></div>
+
+        <div class="actions">
+          <button id="btnWord" class="btn btn-word"><span class="lbl">Download Word (.docx)</span></button>
+          <button id="btnExcel" class="btn btn-excel"><span class="lbl">Download Excel (.xlsx)</span></button>
+        </div>
+        <button id="btnReset" class="btn btn-ghost">Convert another PDF</button>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <div class="sf-item sf-left">
+        <span class="sf-icon" aria-hidden="true">&copy;</span>
+        <span>Copyright &copy; 2026
+          <a href="https://www.viewonly.dev" target="_blank" rel="noopener noreferrer">VIEwoNLY</a>
+        </span>
+      </div>
+      <div class="sf-item sf-right">
+        <span>Powered By:
+          <a href="https://cyberictech.com" target="_blank" rel="noopener noreferrer">Cyber ICT Technologies (Pvt.) Ltd.</a>
+          All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
