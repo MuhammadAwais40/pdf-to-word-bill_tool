@@ -94,11 +94,42 @@ body{
 }
 .sf-inner{
   max-width:1400px;margin:0 auto;padding:14px 20px;
-  display:flex;align-items:center;justify-content:center;
-  gap:clamp(24px,22vw,300px);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(16px,4vw,40px);
+  flex-wrap:wrap;
 }
 .sf-item{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--text);line-height:1.5}
-.sf-right{font-weight:700}
+.sf-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.sf-right > span:first-child{font-weight:700}
+
+/* Beautiful small version badge */
+.app-version{
+  display:inline-flex;
+  align-items:center;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.3px;
+  color:#c7c9e8;
+  background:rgba(99,102,241,.18);
+  border:1px solid rgba(99,102,241,.35);
+  padding:4px 10px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition:all .25s ease;
+}
+.app-version:hover{
+  background:rgba(99,102,241,.28);
+  border-color:rgba(99,102,241,.55);
+  color:#e0e7ff;
+  transform:translateY(-1px);
+}
+
 .sf-icon{font-size:1.25rem;font-weight:800;line-height:1;color:var(--text)}
 .site-footer a{color:var(--link);font-weight:700;text-decoration:none;transition:color .2s}
 .site-footer a:hover,.site-footer a:focus{color:var(--link-hover);text-decoration:underline;outline:none}
@@ -108,11 +139,25 @@ body{
 .toast.success{background:var(--excel)}
 
 @media (max-width:900px){
-  .sf-inner{gap:clamp(16px,6vw,60px)}
+  .sf-inner{gap:clamp(12px,4vw,30px)}
 }
 @media (max-width:760px){
-  .sf-inner{flex-direction:column;gap:6px;padding:14px 16px;text-align:center}
+  .sf-inner{
+    flex-direction:column;
+    gap:10px;
+    padding:14px 16px;
+    text-align:center;
+  }
   .sf-item{justify-content:center;font-size:.82rem}
+  .sf-right{
+    justify-content:center;
+    flex-direction:column;
+    gap:8px;
+  }
+  .app-version{
+    font-size:.7rem;
+    padding:3px 9px;
+  }
 }
 @media (max-width:640px){
   .card{padding:20px 16px;border-radius:20px}
